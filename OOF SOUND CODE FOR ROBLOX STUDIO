@@ -1,0 +1,49 @@
+--Script by R_obotz
+local RootPart = script.Parent:FindFirstChild("HumanoidRootPart")
+if RootPart then
+    local Found = RootPart:FindFirstChild("Died")
+    if Found then
+        Found.SoundId = "rbxassetid://1542642349"
+    end
+end
+ 
+ 
+function updatePlayer(plr)
+    plr.CharacterAdded:Connect(function(char)
+        local RootPart = char:FindFirstChild("HumanoidRootPart")
+        if RootPart then
+            local Found = RootPart:FindFirstChild("Died")
+            if Found then
+                Found.SoundId = "rbxassetid://1542642349"
+            end
+        end
+    end)
+    if plr and plr.Character then
+        local RootPart = plr.Character:FindFirstChild("HumanoidRootPart")
+        if RootPart then
+            local Found = RootPart:FindFirstChild("Died")
+            if Found then
+                Found.SoundId = "rbxassetid://1542642349"
+            end
+        end
+    end
+end
+ 
+for _, newplr in pairs(game.Players:GetPlayers()) do
+    updatePlayer(newplr)
+end
+ 
+game.Players.PlayerAdded:Connect(function(newplr)
+    updatePlayer(newplr)
+end)
+ 
+game.Workspace.ChildAdded:Connect(function(char)
+    task.wait(1)
+    local RootPart = char:FindFirstChild("HumanoidRootPart")
+    if RootPart then
+        local Found = RootPart:FindFirstChild("Died")
+        if Found then
+            Found.SoundId = "rbxassetid://1542642349"
+        end
+    end
+end)
